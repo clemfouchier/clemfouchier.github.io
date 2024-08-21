@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Clément Fouchier</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fffefe;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+            padding-top: 70px;
+        }
+        .navbar {
+            background-color: #790113;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .navbar-nav {
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            color: #fffefe !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.2em;
+            margin: 0 15px;
+        }
+
+        .nav-link:hover {
+            color: #fffefe;
+            text-decoration: underline;
+        }
+        .body-container {
+            margin: 0 20%;
+        }
+        .header-title {
+            color: #790113;
+            font-size: 4em;
+            white-space: nowrap;
+        }
+        .header-subtitle {
+            color: #000;
+            text-transform: uppercase;
+        }
+        .header-button {
+            background-color: #790113;
+            color: #fffefe;
+            text-transform: uppercase;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+        }
+        .header-button:hover {
+            background-color: #59000d;
+        }
+        .profile-pic {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+            /* margin-right: 0;  Assure que l'image est alignée à droite */
+            /* margin-left: auto;  Force l'image à se coller au bord droit */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+     
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .about-title {
+            color: #000;
+            text-transform: uppercase;
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        .about-text {
+            color: #000;
+            font-size: 1em;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+        .section-divider {
+            border: none;
+            border-top: 1px solid #790113;
+            width: 60%;
+            margin: 0 auto;
+        }
+        .projects-section {
+        background-color: #fffefe;
+        }
+        .projects-title {
+            color: #000;
+            text-transform: uppercase;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .card {
+            margin: 0 auto;
+            max-width: 350px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+            
+        }
+
+        .card-body .btn {
+            margin-top: 10px; /* Add space between buttons */
+            width: 100%; /* Ensure both buttons have the same width */
+            flex: 1;
+        }   
+        .card-img-fixed {
+            width: 120px;
+            height: 120px;
+            flex-wrap: wrap;
+            object-fit: cover; /* This ensures the image covers the entire area, maintaining aspect ratio */
+            margin: 0 auto; /* This centers the image horizontally */
+        }
+        
+        .card-title {
+            color: #000;
+            text-transform: uppercase;
+        }
+
+        .btn-article {
+            background-color: #790113;
+            color: #fffefe;
+            border: none;
+        }
+        .btn-article:hover {
+            background-color: #59000d;
+        }
+        .btn-article, .btn-secondary {
+            flex: 1; /* Ensure both buttons have the same width */
+        }
+        .skills-section .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+        .skills-title {
+            color: #000;
+            text-transform: uppercase;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .contact-section {
+            background-color: #790113;
+            color: #fffefe;
+            padding: 40px 0;
+        }
+
+        .contact-title {
+            color: #fffefe;
+            text-transform: uppercase;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+        }
+        .contact-item {
+            margin-bottom: 20px;
+	        text-align: center;
+        }
+        .contact-item a {
+            color: #fffefe;
+            text-decoration: none;
+    	    display: inline-block;
+        }
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        .contact-item .tooltip-inner {
+            background-color: #fffefe;
+            color: #790113; 
+        }
+                /* Ajout des medias queries */
+        @media (max-width: 1620px) {
+            .header-title {
+                font-size: 3.75em;
+            }
+            .profile-pic {
+                max-width: 350px;
+                margin-right: 0;  /* Assure que l'image est alignée à droite */
+                margin-left: auto;  /* Force l'image à se coller au bord droit */
+            }
+        }
+        
+        @media (max-width: 1500px) {
+            .header-title {
+                font-size: 3.5em;
+            }
+            .profile-pic {
+                max-width: 320px;
+            }
+            .card-title {
+                font-size: 1.5em;
+            }
+        }
+        @media (max-width: 1350px) {
+            .header-title {
+                font-size: 3em;
+            }
+            .header-subtitle {
+                font-size: 1.5em;
+            }
+            .profile-pic {
+                max-width: 300px;
+            }
+            .card-title {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 1130px) {
+            .header-title {
+                font-size: 2.7em;
+            }
+            .profile-pic {
+                max-width: 270px;
+            }
+            .card-title {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 928px) {
+            .header-title {
+                font-size: 2.5em;
+            }
+            .profile-pic {
+                max-width: 300px;
+            }
+            .header-subtitle {
+                font-size: 1.4em;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .header-container {
+                flex-direction: column;
+            }
+            .header-left, .header-right {
+                text-align: center;
+                width: 100%;
+            }
+            .header-title {
+                font-size: 2.5em;
+            }
+            .profile-pic {
+                max-width: 300px;
+                margin-top: 50px;
+            }
+            .card-title {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-title {
+                font-size: 2em;
+            }
+            .profile-pic {
+                max-width: 250px;
+            }
+        }
+
+
+    </style>
+</head>
+    <script>
+        function scrollToProjects() {
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#top">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Qui suis-je ?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+
+    <div class="body-container">
+        <header class="py-5 d-flex justify-content-center" id = top>
+            <div class="header-container row align-items-center">
+                <div class="header-left col-md-6 text-md-left text-center mb-4 mb-md-0">
+                    <h1 class="header-title">Clément Fouchier</h1>
+                    <h2 class="header-subtitle">Data Analyst</h2>
+                    <p>Venant du monde des études, j'ai récemment fait mon entrée dans l'univers foisonnant de la data... si vous voulez en savoir plus sur mon parcours et mes projets, ce site est pour vous !</p>
+                    <button class="btn header-button" onclick="scrollToProjects()">Mes projets</button>
+                </div>
+                <div class="header-right col-md-6 text-center text-md-right mt-4 mt-md-0">
+                    <img src="images/Header.jpg" alt="Photo de Clément Fouchier" class="profile-pic">
+                </div>
+            </div>
+        </header>
+
+            <!-- A mon sujet -->
+
+            <section class="about-section text-center py-5" id="about">
+                <hr class="section-divider">
+                <h2 class="about-title">À MON SUJET</h2>
+                <p class="about-text">Jeune homme profondément curieux. Toujours en quête de savoir, j'ai appris au fil du temps différentes techniques d'investigation pour aider les organisations à prendre des décisions éclairées. Après une formation en marketing, j'ai commencé par m'initier aux techniques d'interrogation qualitatives, en particulier ethnographiques, dans le but de designer des produits qui répondent aux aspirations des utilisateurs.</p>
+                <p class="about-text">J'ai ensuite bifurqué vers les études quantitatives. D'abord dans un institut d'études, puis dans une agence d'études spécialisée dans le marketing et la communication, où je suis resté presque 5 ans. Mon métier était de réaliser les études de A à Z, de la prise de brief à la restitution des résultats. J'y ai géré de multiples clients et projets à la fois, dans le but de mesurer les effets des communications et pour comprendre le comportement des clients.</p> 
+                <p class="about-text">En quête d'évolution professionnelle et personnelle, de nouveaux savoirs et de nouvelles compétences ; je me suis cette année formé aux techniques de la Data Analyse, en débutant mon itinéraire par un Bootcamp chez DataScientest (diplôme certifié par les Mines Paris). Je poursuis ma route en renforçant mes compétences et en réalisant de projets personnels dans les domaines que j'apprécie le plus : marketing/communication, nouvelles technologies, médias.</p>
+                <p class="about-text">Actuellement, je recherche un poste de Data Analyst pour apprendre encore davantage auprès de professionnels confirmés.</p>         
+            </section>
+            
+            <!-- Mes compétences -->
+            
+            <section class="skills-section text-center py-5" id="skills">
+                <h2 class="skills-title">Mes compétences</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-center">Data Analyse</h5>
+                                    <img src="Pictos/big-data.png" class="card-img mb-3 card-img-fixed" alt="Data Analyse">
+                                    <ul class="list-unstyled">
+                                        <li>Python</li>
+                                        <li>SQL</li>
+                                        <li>Machine Learning</li>
+                                        <li>PowerBI/Tableau</li>
+                                        <li>Datavisualisation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-center">Sondages</h5>
+                                    <img src="Pictos/dashboard.png" class="card-img mb-3 card-img-fixed" alt="Sondages">
+                                    <ul class="list-unstyled">
+                                        <li>Programmation</li>
+                                        <li>Distribution</li>
+                                        <li>Traitement</li>
+                                        <li>Suite Office</li>
+                                        <li>Storytelling</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-center">Transversal</h5>
+                                    <img src="Pictos/competence.png" class="card-img mb-3 card-img-fixed" alt="Transversal">
+                                    <ul class="list-unstyled">
+                                        <li>Autonomie</li>
+                                        <li>Collaboration</li>
+                                        <li>Communication</li>
+                                        <li>Organisation</li>
+                                        <li>Rigueur</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+              <!-- Mes projets -->
+
+            <section class="projects-section text-center py-5" id="projects">
+                <h2 class="projects-title">Mes projets</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="images/projets/photo_ABtesting.png" class="card-img-top" alt="A/B testing">
+                                <div class="card-body">
+                                    <h5 class="card-title">A/B testing</h5>
+                                    <p class="card-text">Prouver la réussite d'une campagne de promotion d'une marque de fast-food grâce à l'A/B testing.</p>
+                                    <a href="images/articles/article_ABtesting.pdf" target="_blank" class="btn btn-article">Article</a>
+                                    <a href="https://github.com/clemfouchier/AB-testing" target="_blank" class="btn btn-secondary">Code source</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="images/projets/photo_RSxEmotions.png" class="card-img-top" alt="Réseaux sociaux - émotions">
+                                <div class="card-body">
+                                    <h5 class="card-title">Réseaux Sociaux & Emotions</h5>
+                                    <p class="card-text">Comprendre et prédire les émotions ressenties selon l'utilisation des réseaux sociaux grâce au Machine Learning.</p>
+                                    <a href="images/articles/article_Emotions&RS.pdf" target="_blank" class="btn btn-article">Article</a>
+                                    <a href="https://github.com/clemfouchier/R-seaux-sociaux-motions" target="_blank" class="btn btn-secondary">Code source</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="images/projets/photo_projet-banque.jpg" class="card-img-top" alt="Marketing banque">
+                                <div class="card-body">
+                                    <h5 class="card-title">Marketing banque</h5>
+                                    <p class="card-text">Prédire les chances de souscription d'un produit financier de clients appelés dans le cadre d'une campagne de télémarketing.</p>
+                                    <a href="https://projectbank-datascientest-dataanalyst-fev24.streamlit.app/" target="_blank" class="btn btn-article">Article</a>
+                                    <a href="https://github.com/clemfouchier/project_bank" target="_blank" class="btn btn-secondary">Code source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+                <!-- Mon contact -->
+
+                <section class="contact-section text-center py-5" id="contact">
+                    <h2 class="contact-title">Me contacter</h2>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 contact-item">
+                                <a href="mailto:clement.fouchier78@gmail.com" data-toggle="tooltip" data-placement="top" title="Email">
+                                    <img src="Pictos/email.png" alt="Messagerie" class="contact-icon">
+                                    <p>clement.fouchier78@gmail.com</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3 contact-item">
+                                <a href="tel:+33 6 23 18 72 54" data-toggle="tooltip" data-placement="top" title="Téléphone">
+                                    <img src="Pictos/tel.png" alt="Téléphone" class="contact-icon">
+                                    <p>+33 6 23 18 72 54</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3 contact-item">
+                                <a href="https://www.linkedin.com/in/cl%C3%A9ment-fouchier-20206a152/" target="_blank" data-toggle="tooltip" data-placement="top" title="LinkedIn">
+                                    <img src="Pictos/linkedin.png" alt="LinkedIn" class="contact-icon">
+                                    <p>LinkedIn</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3 contact-item">
+                                <a href="https://github.com/clemfouchier" target="_blank" data-toggle="tooltip" data-placement="top" title="GitHub">
+                                    <img src="Pictos/github.png" alt="GitHub" class="contact-icon">
+                                    <p>GitHub</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+    <!-- Bootstrap JS and dependencies -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
